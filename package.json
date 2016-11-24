@@ -1,0 +1,28 @@
+{
+  "name": "diversity_kounts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bettyjobrotherton/diversity_kounts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bettyjobrotherton/diversity_kounts/issues"
+  },
+  "homepage": "https://github.com/bettyjobrotherton/diversity_kounts#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-formly": "^8.4.0",
+    "api-check": "^7.5.5",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.0"
+  }
+}
