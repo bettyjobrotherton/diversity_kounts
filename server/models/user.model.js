@@ -28,5 +28,22 @@ var userSchema = new Schema ({
   },
   dateOfBirth: {
     type: Date
+  },
+  gender: {
+    type: String
+  },
+  isLatin: {
+    type: Boolean
+  },
+  race: {
+    type: String
+  },
+  getEmail: {
+    type: Boolean,
+    required: true
   }
 });
+
+var User = mongoose.model('User', userSchema);
+
+module.exports = User;
