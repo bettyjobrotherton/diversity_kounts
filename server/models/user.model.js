@@ -31,7 +31,6 @@ var userSchema = new Schema ({
   },
   getEmail: {
     type: Boolean,
-    required: true
   },
   is13OrOlder: {
     type: Boolean,
