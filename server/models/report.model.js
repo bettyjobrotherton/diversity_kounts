@@ -3,9 +3,11 @@ var Schema = mongoose.Schema;
 var User = require('./user.model.js');
 
 var reportSchema = new Schema ({
-  user: {
+  _user: [{
     type: String,
-  },
+    ref: User,
+    required: true
+  }],
   dateSubmit: {
     type: Date,
     required: true
