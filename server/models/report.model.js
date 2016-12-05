@@ -16,6 +16,9 @@ var reportSchema = new Schema ({
     type: Date,
     required: true
   },
+  meetingTime: {
+    type: String
+  },
   meetingAddress: { //for the physical street address of meeting being reported
     type: String
   },
