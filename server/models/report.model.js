@@ -3,9 +3,8 @@ var Schema = mongoose.Schema;
 var User = require('./user.model.js');
 
 var reportSchema = new Schema ({
-  _user: [{
-    type: String,
-    ref: User,
+  reporter: [{
+    type: Schema.Types.ObjectId,
     required: true
   }],
   dateSubmit: {
@@ -23,45 +22,57 @@ var reportSchema = new Schema ({
     type: String
   },
   meetingCity: {
-    type: String
+    type: String,
+    required: true
   },
   meetingState: {
-    type: String
+    type: String,
+    required: true
   },
   meetingZip: {
     type: Number,
     minlength: 5,
-    maxlength: 5
+    maxlength: 5,
+    required: true
   },
   meetingPurpose: {
-    type: Boolean //where true would be civic or professional development
-  },              //and false would be hobby or personal development
+    type: Boolean, //where true would be civic or professional development
+    required: true  //and false would be hobby or personal development
+  },
   meetingType: {
-    type: String
+    type: String,
+    required: true
   },
   isRoutine: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   isForSpecificGroup: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   specificGroup: {
-    type: String
+    type: String,
+    required: true
   },
   host: {
     type: String
   },
   isNonProfit: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   formedToSupport: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   supportWho: {
-    type: String
+    type: String,
+    required: true
   },
   hasLeader: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   leaderGender: {
     type: String
@@ -73,7 +84,8 @@ var reportSchema = new Schema ({
     type: String
   },
   hasSpeaker: {
-    type: Boolean
+    type: Boolean,
+    required: true
   },
   speakerGender: {
     type: String
@@ -86,6 +98,7 @@ var reportSchema = new Schema ({
   },
   attendees: {
     type: Number,    //<--should this be required?
+    required: true
   },
   femaleAttend: {
     type: Number

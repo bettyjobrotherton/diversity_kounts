@@ -41,6 +41,9 @@ var userSchema = new Schema ({
   },
   salt: {
     type: String
+  },
+  reports: {
+    type: [Schema.Types.ObjectId]
   }
 });
 
