@@ -62,10 +62,17 @@
     }
 
     function create(newReport){
-      $http.post(baseURL)
+      $http.post(baseURL, newReport)
+           .then(function(res){
+             getAllByUser(userID);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
     }
 
-    function update(){}
+    function update(id, newReportData){
+    }
 
     function deleteOne(){}
 
