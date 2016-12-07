@@ -5,8 +5,349 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  	<title></title>
+  </head>
+  <body>
+  <form>
+     <section class="container">
+      <div class="login">
+        <h1>Login to Diversity_Kounts</h1>
+        <form method="post" action="index.html">
+          <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+          <p><input type="password" name="password" value="" placeholder="Password"></p>
+          <p class="remember_me">
+            <label>
+              <input type="checkbox" name="remember_me" id="remember_me">
+              Remember me on this computer
+            </label>
+          </p>
+          <p class="submit"><input type="submit" name="commit" value="Login"></p>
+        </form>
+      </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+      <div class="login-help">
+        <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>
+      </div>
+    </section>
+  </form>
+
+  <form>
+  	<h1>Signup</h1>
+  	<div>
+  	<label for="firstname">First Name:</label>
+  	<input id="firstname" type="text" name="textfield" placeholder="First name only">
+  	</div>
+  	<br>
+  	<div>
+  	<label for="lastname">Last Name:</label>
+  	<input id="lastname" type="text" name="textfield" placeholder="Last name only">
+  	</div>
+  	<br>
+  	<div>
+  	<label for="dateofbirth">Date of Birth:</label>
+  	<input id="dob" type="date" name="dob">
+  	</div>
+  	<br>
+  	<div>
+  	<label for="email">Email:</label>
+  	<input id="email" type="email" name="textfield" placeholder="example@domain.com" required>
+  	</div>
+  	<br>
+  	<div>
+  	<label for="telephone">Telephone:</label>
+  	<input id="phone" type="tel" name="phone" placeholder="123.456.7890">
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="gender">Choose your Gender</label>
+  		<select id ="gender" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Female</option>
+  			<option value="2">Male</option>
+  			<option value="3">Other</option>
+  			<option value="4">Prefer not to answer</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="ethnic">Are you Latin or Hispanic?</label>
+  		<select id ="ethnic" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  			<option value="3">Prefer not to answer</option>
+  		</select>
+  	</div>
+  	<br>
+      <div>
+      	<legend>Race: (Mark all that apply)</legend>
+      	<input id="black, african american" type="checkbox" name="race" value="black, african american">
+      	<label for="black, african american">Black, African American</label><br>
+      	<input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+      	<label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+      	<input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+      	<label for="white, caucasian">White, Caucasian</label><br>
+      	<input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+      	<label for="native america or indigenous">Native America or Indigenous</label><br>
+      	<input id="other" type="checkbox" name="race" value="other">
+      	<label for="other">Other</label><br>
+      </div>
+      <br>
+      <div>
+      	<legend></legend>
+      	<input id="question" type="checkbox" name="question" value="question">
+      	<label for="question">Please click if you would like to receive emails on local diversity</label><br>
+      </div>
+      <div>
+      	<legend></legend>
+      	<input id="question" type="checkbox" name="question" value="question">
+      	<label for="question">By clicking, you agree to the privacy policy and terms of service.</label><br>
+      </div>
+
+  </form>
+
+  <form>
+  	<h1>Make a report</h1>
+  	<div>
+  		<label for="nameofmeeting">Name of Meeting:</label>
+  		<input id="nameofmeeting" type="text" name="textfield" placeholder="Required">
+  	</div>
+  	<br>
+  	<div>
+  		<label for="meetingdate">Meeting date:</label>
+  		<input id="meetingdate" type="date" name="meetingdate" ng-model='report.meetingDate'>
+  	</div>
+  	<br>
+  	<div>
+  		<label for="timeofmeeting">Meeting start time:</label>
+  		<input type="time" name="timeofmeeting" ng-model='report.meetingTime'>
+  		<input type="submit">
+  	</div>
+  	<br>
+  	<div>
+  		<div>
+  		<label for="meetinglocation">Meeting location:</label>
+  		<input id="meetinglocation" type="text" name="textfield" placeholder="Address (Required)">
+  		<label for="city">City:</label>
+  		<input id="city" type="text" name="textfield" placeholder="Required">
+  		<label for="state">State:</label>
+  		<input id="state" type="text" name="textfield" placeholder="Required">
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="purposeofmeeting">Main purpose of meeting?</label>
+  		<select id ="purposeofmeeting" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Civic/Professional development</option>
+  			<option value="2">Hobby/Personal development</option>
+  		</select>
+  	</div>
+  	</br>
+  	<div>
+  		<label for ="meetingtype">Is meeting a</label>
+  		<select id ="meetingtype" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">decision-making meeting that is private/closed</option>
+  			<option value="2">non-decision-making meeting that is private/closed</option>
+  			<option value="3">decision-making meeting that is public/open</option>
+  			<option value="4">non-decision-making meeting that is public/open</option>
+  		</select>
+  	</div>
+  	</br>
+  	<div>
+  		<label for ="meetingpurpose">Is meeting routine or being held for a special purpose?</label>
+  		<select id ="meetingpurpose" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">routine</option>
+  			<option value="2">speacial purpose</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="meetingintention">Is meeting intended for a specific business or industry?</label>
+  		<select id ="meetingintention" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  		</select>
+  	</div>
+  	<div>
+  		<label for="businessorindustry">If yes, which one</label>
+  		<input type="text" name="textfield" placeholder="Required">
+  	</div>
+  	<br>
+  	<div>
+  		<label for="hostingorganization">Name of hosting organization</label>
+  		<input type="text" name="textfield" placeholder="Required">
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="organizationtype">Is organization a non-profit?</label>
+  		<select id ="organizationtype" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="organizationformed">Was organization formed to support specific gender(s) and/or demographic(s)?</label>
+  		<select id ="organizationformed" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  		</select>
+  	</div>
+  	<div>
+  		<label for="businessorindustry">If yes, which one(s)</label>
+  		<input type="text" name="textfield" placeholder="Required">
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="groupleader">Is there a group leader?</label>
+  		<select id ="groupleader" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="groupleader">If yes, do they identify as</label>
+  		<select id ="groupleader" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Male</option>
+  			<option value="2">Female</option>
+  			<option value="3">Other</option>
+  			<option value="4">Not sure</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="organizationtype">Are they Latino or Hispanic?</label>
+  		<select id ="organizationtype" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  			<option value="2">Not sure</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+      	<legend>What is their race? (Mark all that apply)</legend>
+      	<input id="black, african american" type="checkbox" name="race" value="black, african american">
+      	<label for="black, african american">Black, African American</label><br>
+      	<input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+      	<label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+      	<input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+      	<label for="white, caucasian">White, Caucasian</label><br>
+      	<input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+      	<label for="native america or indigenous">Native America or Indigenous</label><br>
+      	<input id="other" type="checkbox" name="race" value="other">
+      	<label for="other">Other</label><br>
+      </div>
+      <br>
+  	<div>
+  		<label for ="organizationtype">Is there a keynote speaker?</label>
+  		<select id ="organizationtype" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  			<option value="2">Not sure</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="keynoteidentify">If yes, do they qualify as:</label>
+  		<select id ="keynoteidentify" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Male</option>
+  			<option value="2">Female</option>
+  			<option value="3">Other</option>
+  			<option value="4">Not sure</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+  		<label for ="organizationtype">Are they Latino or Hispanic?</label>
+  		<select id ="organizationtype" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">Yes</option>
+  			<option value="2">No</option>
+  			<option value="2">Not sure</option>
+  		</select>
+  	</div>
+  	<br>
+  	<div>
+      	<legend>What is their race? (Mark all that apply)</legend>
+      	<input id="black, african american" type="checkbox" name="race" value="black, african american">
+      	<label for="black, african american">Black, African American</label><br>
+      	<input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+      	<label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+      	<input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+      	<label for="white, caucasian">White, Caucasian</label><br>
+      	<input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+      	<label for="native america or indigenous">Native America or Indigenous</label><br>
+      	<input id="other" type="checkbox" name="race" value="other">
+      	<label for="other">Other</label><br>
+      	<input id="notsure" type="checkbox" name="race" value="notsure>
+      	<label for="other">Not sure</label><br>
+      </div>
+      <br>
+  	<div>
+  		<label for ="numberofattendees">Number of attendees?</label>
+  		<select id ="numberofattendees" name="select">
+  			<option value="0">Pick one</option>
+  			<option value="1">100</option>
+  			<option value="2">200</option>
+  			<option value="2">300</option>
+  		</select>
+  	</div>
+  	<div>
+  	<p>Number of attendees that are:</p>
+  		<label for="name">Female:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Male:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Other:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Not sure:</label>
+  		<input id="name" type="text" name="textfield">
+  	<br>
+  	<p>Number of attendees that are:</p>
+  		<label for="name">Other:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Not sure:</label>
+  		<input id="name" type="text" name="textfield">
+  	<br>
+  	<p>Number of attendees that are:</p>
+  		<label for="name">Black/African American:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Asian/Pacific Islander:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">White/Caucasian:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Native American or Indigenous:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Other:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  		<label for="name">Not sure:</label>
+  		<input id="name" type="text" name="textfield"><br>
+  	<br>
+  	<label for="questionsandcomments">Additional information or comments:</label><br>
+  	<textarea id="address" name="addresstext" placeholder="Optional"></textarea>
+  	<br>
+  	<input type="submit" name="submit" value="Submit">
+  	<input type="reset" name="reset" value="Reset">
+
+
+  </form>
+
+  </body>
+  </html><script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
 <script src="/js/app.js"></script>
 </body>
 </html>
