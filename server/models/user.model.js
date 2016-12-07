@@ -17,6 +17,9 @@ var userSchema = new Schema ({
     required: true,
     unique: true
   },
+  occupation: {
+    type: String
+  },
   dateOfBirth: {
     type: Date,
   },
@@ -64,6 +67,8 @@ userSchema.methods.generateJwt = function(){
   return jwt.sign({
     _id: this._id,
     email: this.email,
+    firstName: this.firstName,
+    lastName: this.lastName,
     exp: parseInt(expiration.getTime() /1000)
   }, signature);
 };
