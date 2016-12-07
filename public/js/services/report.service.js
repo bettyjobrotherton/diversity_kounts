@@ -11,9 +11,8 @@
     var selectedReport;
     var baseURL = '/reports/';
 
-    init();
-
     return {
+      pullAll: pullAll,
       getAll: getAll,
       getAllByUser: getAllByUser,
       getOne: getOne,
@@ -23,7 +22,7 @@
       delete: deleteOne
     };
 
-    function init(){
+    function pullAll(){
       $http.get(baseURL)
            .then(function(res){
              reports = res.data.reports;
@@ -71,10 +70,25 @@
            });
     }
 
-    function update(id, newReportData){
+    function update(id, newReportData, userID){
+      $http.put(baseURL + id, newReportData)
+           .then(function(){
+             getAllByUser(userID);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
     }
 
-    function deleteOne(){}
+    function deleteOne(id, userID){
+      $http.delete(baseURL + id)
+           .then(function(){
+             getAllByUser(userID);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
 
   }
 
