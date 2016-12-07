@@ -8,7 +8,11 @@
   function RouterConfig($routeProvider){
     $routeProvider
       .when('/', {
-        templateUrl: 'html/views/home.html',
+        templateUrl: '/html/views/home.html',
+        controller: 'MainController'
+      })
+      .when('/home', {
+        templateUrl: '/html/views/home.html',
         controller: 'MainController'
       })
       .otherwise({
