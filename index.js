@@ -21,6 +21,10 @@ server.get("/login", function(request, response){
   response.sendFile("public/html/login.html", { root: __dirname });
 });
 
+server.get("/signup", function(request, response){
+  response.sendFile('public/html/signup.html', { root: __dirname });
+});
+
 server.get("/user", function(request, response){
   response.sendFile('public/html/user.html', { root: __dirname });
 });
