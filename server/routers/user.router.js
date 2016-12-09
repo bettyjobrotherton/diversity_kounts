@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 
 var User = require('../models/user.model.js');
 
@@ -43,31 +44,26 @@ router.post('/users/signup', function(req, res){
 });
 
 router.post('/users/login', function(req, res){
-  if(!req.body.email || !req.body.password){
-    return res.status(401).json({
-      msg: 'The email or password you provided is incorrect.'
-    });
-  }
-  User.findOne({email: req.body.email}, function(err, user){
+  passport.authenticate('local', function(err, user, data){
     if(err){
       return res.status(500).json({
-        msg:err
+        msg: err
       });
     }
     if(!user){
       return res.status(401).json({
-        msg: 'The email or password you provided is incorrect.'
+        msg: "The username or password you have provided is incorrect"
       });
     }
     if(!user.validPassword(req.body.password)){
       return res.status(401).json({
-        msg: 'The email or password you provided is incorrect.'
+        msg: "The username or password you have provided is incorrect"
       });
     }
-    return res. status(200).json({
+    return res.status(200).json({
       token: user.generateJwt()
     });
-  });
+  })(req, res);
 });
 
 router.put('/users/profile/:userID', function(req, res){});
