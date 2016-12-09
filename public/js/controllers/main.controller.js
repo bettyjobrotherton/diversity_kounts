@@ -3,9 +3,9 @@
   angular.module('diversity_app')
          .controller('main-controller', MainController);
 
-  MainController.$inject = ['$scope'];
+  MainController.$inject = ['$scope', '$location'];
 
-  function MainController($scope){
+  function MainController($scope, $location){
 
   }
 

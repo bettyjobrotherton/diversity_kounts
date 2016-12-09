@@ -23,6 +23,10 @@ server.get('/iv', function(req, res){
   res.sendFile('public/html/index-views.html', {root: __dirname});
 });
 
+server.get('/login', function(req, res){
+  res.sendFile('public/html/login.html', {root: __dirname});
+});
+
 server.use(userRouter);
 server.use(reportRouter);
 

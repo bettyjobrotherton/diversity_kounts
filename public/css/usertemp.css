@@ -224,10 +224,16 @@ a:focus {
 /* USER PAGE CSS START*/
 body{
  background-color: #00d688;
+ /*background: #ffffff;*/
+ /*margin: 0;*/
+ height: 100%;
+ color: white;
+ /*font-family: 'Lato', sans-serif;*/
+ /*font-weight: 400;*/
 }
 
-*{
-    font-family: 'Raleway', sans-serif;
+/**{
+    font-family: 'Raleway', sans-serif;*/
     /*color : #FFF;*/
 
 }
@@ -322,23 +328,24 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
 
 .control {
     color:#000;
-    margin:10px;
+    /*margin:10px;*/
 }
 
-.label {
-    color: #EB4F26;
+.control-label {
+    color: #00d688;
     font-size: 18px;
     font-weight: 500;
+		padding-right: 50px;
 }
 
 .form-control{
     color: #000000; /*was important*/
-    font-size: 25px;
+    font-size: 18px;
     border: none;
-    padding: 25px;
+    /*padding: 25px;*/
     padding-left: 10px;
     border-bottom: 1px solid #CCC;
-    margin-bottom: 10px;
+    /*margin-bottom: 10px;*/
     outline: none;
     -webkit-box-shadow: none !important;
     -moz-box-shadow: none !important;
@@ -390,14 +397,13 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
 }
 
 /* SURVEY */
-#surveywrap textarea {
+/*#surveywrap textarea {
 	color: black;
-
-	/*color: inherit;
+	color: inherit;
 	width: 100%;
-	height: 100%;*/
+	height: 100%;
 	border: medium dashed;
-}
+}*/
 
 #surveywrap label{
 	color: black;
@@ -411,8 +417,8 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
 		margin: 0;
 		height: 100%;
 		color: #00d688;
-		font-family: 'Lato', sans-serif;
-		font-weight: 400;
+		/*font-family: 'Lato', sans-serif;*/
+		/*font-weight: 400;*/
 }
 
 *[role="form"] h2 {
@@ -421,23 +427,23 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
     /*margin: inherit;*/
     /*padding-left: 100px;*/
 
-    text-align: center;
+    /*text-align: center;*/
 
 
 }
 
 *[role="form"] {
-    max-width: 530px;
-    margin: inherit;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    /*max-width: 530px;*/
+    /*margin: inherit;*/
+    /*padding-top: 100px;*/
+    /*padding-bottom: 50px;*/
     padding-left: 20px;
     padding-right: 20px;
     /*margin-top: 50px;*/
-    position: relative;
+    position: inherit;
 		color: black;
     /*background-color: #fff;*/
-    border-radius: 0.3em;
+    /*border-radius: 0.3em;*/
 }
 
 @media (max-width: 768px) {

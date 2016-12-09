@@ -9,15 +9,33 @@
     $routeProvider
       .when('/', {
         templateUrl: '/html/views/main.html',
-        controller: 'MainController'
+        controller: 'MainController',
+        css: ["css/bootstrap.css", "css/style.css"]
       })
       .when('/home', {
         templateUrl: '/html/views/main.html',
-        controller: 'MainController'
+        controller: 'MainController',
+        css: ["css/bootstrap.css", "css/style.css"]
       })
       .when('/main', {
         templateUrl: '/html/views/main.html',
-        controller: 'MainController'
+        controller: 'MainController',
+        css: ["css/bootstrap.css", "css/style.css"]
+      })
+      .when('/login', {
+        templateUrl: '/html/views/login.html',
+        controller: 'LoginController',
+        css: ["css/bootstrap.css", "css/style.css"]
+      })
+      .when('/signup', {
+        templateUrl: '/html/views/signup.html',
+        controller: 'SignupController',
+        css: ["css/bootstrap.css", "css/signup.css"]        
+      })
+      .when('/user', {
+        templateUrl: '/html/views/user.html',
+        controller: 'UserController',
+        css: ['css/bootstrap.css', 'css/usertemp.css']
       })
       .otherwise({
         redirectTo: '/'

@@ -1,0 +1,201 @@
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">&#60; DIVERSITY.KOUNTS &#62;</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-right">
+        <ul class="nav navbar-nav">
+          <li><a href="/login">LOGIN</a></li>
+          <li class="active"><a href="/signup">SIGN UP</a></li>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+<!-- start body -->
+<!-- Need: Name Age Gender (check box) race (check box, choose not to ans), email, pass, confirm pass, confirm older than 13 checkbox [they get email on auto by registering], submit button
+on click submit redirect from reg page to login page with a login page function if sent from register page show message (thanks for registering, please log in using your email and pass) -->
+
+<div class="container">
+            <form class="form-horizontal" role="form">
+                <h2>Please Register</h2>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="Full Name" class="form-control" autofocus>
+                        <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="Email" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" placeholder="Password" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                    <div class="col-sm-9">
+                        <input type="date" id="birthDate" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="col-sm-3 control-label">Position</label>
+                    <div class="col-sm-9">
+                        <select id="country" class="form-control">
+                            <option>- please select closest option from list-</option>
+                            <option>Front End Developer</option>
+                            <option>Back End Developer</option>
+                            <option>Full Stack Developer</option>
+                            <option>Scrum Master</option>
+                            <option>Designer</option>
+                            <option>Angel Investor</option>
+                            <option>Marketing</option>
+                            <option>Other</option>
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <!-- ALEX EDIT -->
+
+                <!-- <form> -->
+                  <!-- <br> -->
+                  <div class="form-group">
+                    <label for ="ethnic" class="col-sm-3 control-label text-center" >Latin or Hispanic?</label>
+                    <div class="col-sm-9">
+                    <select id ="ethnic" name="select" class="form-control">
+                      <option value="0">- please select from list -</option>
+                      <option value="1">Yes</option>
+                      <option value="2">No</option>
+                      <option value="3">Prefer not to answer</option>
+                    </select>
+                  </div>
+                  </div>
+                  <!-- <br> -->
+                    <div class="form-group">
+                    <label for ="race" class="col-sm-3 control-label" ><!--  <legend> -->Race<!-- </legend> --></label>
+                      <div class="col-sm-9">
+                      <input id="black, african american" type="checkbox" name="race" value="black, african american">
+                      <label for="black, african american">Black, African American</label><br>
+                      <input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+                      <label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+                      <input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+                      <label for="white, caucasian">White, Caucasian</label><br>
+                      <input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+                      <label for="native america or indigenous">Native America or Indigenous</label><br>
+                      <input id="other" type="checkbox" name="race" value="other">
+                      <label for="other">Other</label>
+                      </div>
+                    </div>
+
+                <!-- </form> -->
+
+                <!-- /.form-group -->
+                <!--
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="femaleRadio" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="maleRadio" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" id="uncknownRadio" value="Unknown">Other
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="form-group">
+                    <label for="country" class="col-sm-3 control-label">Gender</label>
+                    <div class="col-sm-9">
+                        <select id="country" class="form-control">
+                    <option value="0">- please select from list -</option>
+                    <option value="1">Female</option>
+                    <option value="2">Male</option>
+                    <option value="3">Other</option>
+                    <option value="4">Prefer not to answer</option>
+                  </select>
+                </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox">I accept <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                </div> <!-- /.form-group -->
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </form> <!-- /form -->
+        </div> <!-- ./container -->
+
+
+
+<!-- *****************************************************************************************************************
+ FOOTER
+ ***************************************************************************************************************** -->
+ <div id="footerwrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <h4>About</h4>
+        <div class="hline-w"></div>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Social Links</h4>
+        <div class="hline-w"></div>
+        <p>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-tumblr"></i></a>
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <h4>Address</h4>
+        <div class="hline-w"></div>
+        <p>
+          Email: contact@diversitykounts.com
+          Some Ave, 987,<br/>
+          23890, New York,<br/>
+          United States.<br/>
+        </p>
+      </div>
+    </div><!--/row -->
+  </div><!--/container -->
+ </div><!--/footerwrap -->

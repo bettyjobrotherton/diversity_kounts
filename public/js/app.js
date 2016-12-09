@@ -1,5 +1,5 @@
 (function() {
 
-  angular.module('diversity_app', ['ngRoute']);
+  angular.module('diversity_app', ['ngRoute', 'routeStyles']);
 
 }());
