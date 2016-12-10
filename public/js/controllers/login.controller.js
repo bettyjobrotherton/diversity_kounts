@@ -1,7 +1,7 @@
 (function() {
 
   angular.module('diversity_app')
-         .controller('login-controller', LoginController);
+         .controller('LoginController', LoginController);
 
   LoginController.$inject = ['$scope', '$location'];
 
