@@ -1,6 +1,7 @@
 (function() {
 
-  angular.module('logout', LogoutDirective);
+  angular.module('diversity_app')
+         .directive('logout', LogoutDirective);
 
   LogoutDirective.$inject = [];
 
