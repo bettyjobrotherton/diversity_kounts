@@ -66,6 +66,17 @@ router.post('/users/login', function(req, res){
   })(req, res);
 });
 
-router.put('/users/profile/:userID', function(req, res){});
+router.put('/users/profile/:userID', function(req, res){
+  User.findOneAndUpdate({_id: req.params.userID}, req.body, function(err){
+    if(err){
+      return res.status(500).json({
+        msg: err
+      });
+    }
+    return res.status(200).json({
+      msg: 'Update successful!'
+    });
+  });
+});
 
 module.exports = router;
