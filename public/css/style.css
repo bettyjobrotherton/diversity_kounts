@@ -204,7 +204,7 @@ a:focus {
 		rgba(0, 0, 0, 0.7),
 		rgba(0, 0, 0, 0.7)
 		),
-	url(https://image.freepik.com/free-vector/character-faces-icons_1029-6.jpg);
+	url(../images/character-faces-icons_1029-6.jpg);
 
 	/*background-repeat: no-repeat;*/
 	min-height: 550px;
@@ -333,7 +333,7 @@ csmall2 {
 
 /* carousel */
 #caro{
-	background-image: url(//i.imgur.com/DFNmrBJ.jpg);
+	background-image: url(../images/DFNmrBJ.jpg);
 }
 #quote-carousel
 {

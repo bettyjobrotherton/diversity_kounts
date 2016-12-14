@@ -8,7 +8,7 @@ var reportRouter = require('./server/routers/report.router.js');
 var passport = require('passport');
 require('./server/passport.js');
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8081;
 var mongoURI = process.env.MONGOURI || require('./config.js').databaseURI;
 
 server.use(bodyParser.json());

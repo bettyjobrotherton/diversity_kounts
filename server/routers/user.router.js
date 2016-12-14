@@ -4,7 +4,7 @@ var passport = require('passport');
 
 var User = require('../models/user.model.js');
 
-router.get('/users/profile/:userID', function(req, res){});
+// router.get('/users/profile/:userID', function(req, res){});
 
 router.post('/users/signup', function(req, res){
   var user = new User(req.body);

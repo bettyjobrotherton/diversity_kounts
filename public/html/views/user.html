@@ -1,0 +1,388 @@
+<div class="container">
+  <div class="row login_box">
+      <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h3>READY TO BE HEARD?</h3></div>
+            <div class="outter"><img src="../images/people-q-c-100-100-1.jpg" class="image-circle"/></div>
+            <h1>Hi Guest</h1>
+            <span>DEVELOPER</span>
+      </div>
+        <div class="col-md-6 col-xs-6 follow line" align="center">
+            <h4>
+                 View Completed Surveys <br/> <span>click here</span>
+            </h4>
+        </div>
+        <div id="show" class="col-md-6 col-xs-6 follow line" align="center">
+            <h4>
+                 Start A New Survey <br/> <span>click here</span>
+            </h4>
+        </div>
+
+        <div id="hidden" class="col-md-12 col-xs-12 login_control survey" style="display:none" > <!-- style="display:none" -->
+
+                <!-- <div id="surveywrap" class="col-md-12 col-xs-12 survey"> -->
+<!-- alex start -->
+          <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                <!-- <label for="sel1">Select list:</label>
+                <select class="form-control" id="sel1">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                </select>
+                </div>
+                  <div class="radio">
+                <label><input type="radio" name="optradio">Option 1</label>
+                </div>
+                <div class="radio">
+                <label><input type="radio" name="optradio">Option 2</label>
+                </div>
+                <div class="radio disabled">
+                <label><input type="radio" name="optradio" disabled>Option 3</label>
+                </div> -->
+
+                  <label for="nameofmeeting" class="col-sm-3 control-label">Name of Meeting:</label>
+                  <div class="col-sm-9">
+                  <input id="nameofmeeting" class="form-control" type="text"  placeholder="Required">
+                  </div>
+                </div>
+
+                <br>
+                <div class="form-group">
+                  <label for="meetingdate" class="col-sm-3 control-label">Meeting date:</label>
+                  <div class="col-sm-9">
+                      <input id="meetingdate" class="form-control" type="date" name="meetingdate" >
+                  </div>
+                </div>
+                <!-- <br>
+                <div>
+                  <label for="timeofmeeting">Meeting start time:</label>
+                  <input type="time" name="timeofmeeting" ng-model='report.meetingTime'>
+                  <input type="submit">
+                </div> -->
+                <br>
+                  <div class="form-group">
+                  <label for="meetinglocation" class="col-sm-3 control-label">Location:</label>
+                  <div class="col-sm-9">
+                  <input id="meetinglocation" class="form-control" type="text" placeholder="City, State">
+                  <!-- <label for="city">City, :</label>
+                  <input id="city" type="text" name="textfield" placeholder="Required">
+                  <label for="state">State:</label>
+                  <input id="state" type="text" name="textfield" placeholder="Required">
+                  <div> -->
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="purposeofmeeting" class="col-sm-3 control-label">Main purpose of meeting?</label>
+                  <div class="col-sm-9">
+                  <select id ="purposeofmeeting" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Civic/Professional development</option>
+                    <option value="2">Hobby/Personal development</option>
+                  </select>
+                </div>
+                </div>
+                </br>
+                <div class="form-group">
+                  <label for ="meetingtype" class="col-sm-3 control-label">Is meeting a</label>
+                  <div class="col-sm-9">
+                  <select id ="meetingtype" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">decision-making meeting that is private/closed</option>
+                    <option value="2">non-decision-making meeting that is private/closed</option>
+                    <option value="3">decision-making meeting that is public/open</option>
+                    <option value="4">non-decision-making meeting that is public/open</option>
+                  </select>
+                </div>
+                </div>
+                </br>
+                <div class="form-group">
+                  <label for ="meetingpurpose" class="col-sm-3 control-label" >Is meeting routine or being held for a special purpose?</label>
+                  <div class="col-sm-9">
+                  <select id ="meetingpurpose" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">routine</option>
+                    <option value="2">speacial purpose</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="meetingintention" class="col-sm-3 control-label">Is meeting intended for a specific business or industry?</label>
+                  <div class="col-sm-9">
+                  <select id ="meetingintention" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="businessorindustry" class="col-sm-3 control-label">If yes, which one</label>
+                  <div class="col-sm-9">
+                  <input type="text" name="textfield" placeholder="skip if non applicable" class="form-control">
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="hostingorganization" class="col-sm-3 control-label">Name of hosting organization</label>
+                  <div class="col-sm-9">
+                  <input type="text" name="textfield" placeholder="Required" class="form-control">
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="organizationtype" class="col-sm-3 control-label">Is organization a non-profit?</label>
+                  <div class="col-sm-9">
+                  <select id ="organizationtype" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="organizationformed" class="col-sm-3 control-label">Was organization formed to support specific gender and/or demographic?</label>
+                  <div class="col-sm-9">
+                  <select id ="organizationformed" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for="businessorindustry" class="col-sm-3 control-label">If yes, which one(s)</label>
+                  <div class="col-sm-9">
+                  <input type="text" name="textfield" placeholder="Required" class="form-control">
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="groupleader" class="col-sm-3 control-label">Is there a group leader?</label>
+                  <div class="col-sm-9">
+                  <select id ="groupleader" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="groupleader" class="col-sm-3 control-label">If yes, do they identify as</label>
+                  <div class="col-sm-9">
+                  <select id ="groupleader" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                    <option value="4">Not sure</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="organizationtype" class="col-sm-3 control-label">Are they Latino or Hispanic?</label>
+                  <div class="col-sm-9">
+                  <select id ="organizationtype" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                    <option value="2">Not sure</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">What is their race? (Mark all that apply):</label>
+                    <div class="col-sm-9">
+                    <input id="black, african american" type="checkbox" name="race" value="black, african american">
+                    <label for="black, african american">Black, African American</label><br>
+                    <input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+                    <label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+                    <input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+                    <label for="white, caucasian">White, Caucasian</label><br>
+                    <input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+                    <label for="native america or indigenous">Native America or Indigenous</label><br>
+                    <input id="other" type="checkbox" name="race" value="other">
+                    <label for="other">Other</label><br>
+                  </div>
+                </div>
+                  <br>
+                <div class="form-group">
+                  <label for ="organizationtype" class="col-sm-3 control-label">Is there a keynote speaker?</label>
+                  <div class="col-sm-9">
+                  <select id ="organizationtype" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                    <option value="2">Not sure</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="keynoteidentify" class="col-sm-3 control-label">If yes, do they qualify as:</label>
+                  <div class="col-sm-9">
+                  <select id ="keynoteidentify" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Other</option>
+                    <option value="4">Not sure</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <label for ="organizationtype" class="col-sm-3 control-label">Are they Latino or Hispanic?</label>
+                  <div class="col-sm-9">
+                  <select id ="organizationtype" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                    <option value="2">Not sure</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">What is their race? (Mark all that apply)</label>
+                    <div class="col-sm-9">
+                    <input id="black, african american" type="checkbox" name="race" value="black, african american">
+                    <label for="black, african american">Black, African American</label><br>
+                    <input id="asian or pacific islander" type="checkbox" name="race" value="asian or pacific islander">
+                    <label for="asian or pacific islander">Asian or Pacific Islander</label><br>
+                    <input id="white, caucasian" type="checkbox" name="race" value="white, caucasian">
+                    <label for="white, caucasian">White, Caucasian</label><br>
+                    <input id="native america or indigenous" type="checkbox" name="race" value="native america or indigenous">
+                    <label for="native america or indigenous">Native America or Indigenous</label><br>
+                    <!-- <input id="other" type="checkbox" name="race" value="other">
+                    <label for="other">Other</label><br> -->
+                    <input id="notsure" type="checkbox" name="race" value="notsure">
+                    <label for="other">Not sure</label><br>
+                  </div>
+                  </div>
+                  <br>
+                <div class="form-group">
+                  <label for ="numberofattendees" class="col-sm-3 control-label">Number of attendees?</label>
+                  <div class="col-sm-9">
+                  <select id ="numberofattendees" name="select" class="form-control">
+                    <option value="0">Pick one</option>
+                    <option value="1">Less Than 15</option>
+                    <option value="2">Between 15 And 30</option>
+                    <option value="2">30 Or More</option>
+                  </select>
+                </div>
+                </div>
+                <br>
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Number of attendees that are:</label>
+                  <div class="col-sm-9">
+                  <label for="name">Female:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                  <label for="name">Male:</label>
+                  <input id="name" type="text" name="textfield" class="form-control"><br>
+                  <label for="name">Other:</label>
+                  <input id="name" type="text" name="textfield" class="form-control"><br>
+                  <!-- <label for="name">Not sure:</label>
+                  <input id="name" type="text" name="textfield" class="form-control"> -->
+                </div>
+                </div>
+                <!-- <p>Number of attendees that are:</p>
+                  <label for="name">Other:</label>
+                  <input id="name" type="text" name="textfield"><br>
+                  <label for="name">Not sure:</label>
+                  <input id="name" type="text" name="textfield">
+                <br> -->
+                <div class="form-group">
+                <label class="col-sm-3 control-label">Number of attendees that are:</label>
+                <div class="col-sm-9">
+                  <label for="name">Black/African American:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                  <label for="name">Asian/Pacific Islander:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                  <label for="name">White/Caucasian:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                  <label for="name">Native American or Indigenous:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                  <!-- <label for="name">Other:</label>
+                  <input id="name" type="text" name="textfield"><br> -->
+                  <label for="name">Not sure:</label>
+                  <input id="name" type="number" name="textfield" class="form-control"><br>
+                </div>
+              </div>
+
+
+
+
+              <!-- alex end after edits for styling-->
+
+              <div class="form-group">
+                <label for="comment" class="col-sm-3 control-label">Comment:</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+              </div>
+              <br>
+
+              <!-- submit button wrapped correctly? -->
+              <div align="center">
+                <button class="btn btn-orange">SUBMIT</button>
+              </div>
+          </form> <!--form close-->
+        </div><!--hidden survey close-->
+      </div> <!--user/"login box" close-->
+    </div> <!--container close-->
+
+
+
+<!-- *****************************************************************************************************************
+FOOTER
+***************************************************************************************************************** -->
+<div id="footerwrap">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4>About</h4>
+      <div class="hline-w"></div>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    </div>
+    <div class="col-lg-4">
+      <h4>Social Links</h4>
+      <div class="hline-w"></div>
+      <p>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-tumblr"></i></a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <h4>Address</h4>
+      <div class="hline-w"></div>
+      <p>
+        Email: contact@diversitykounts.com
+        Some Ave, 987,<br/>
+        23890, New York,<br/>
+        United States.<br/>
+      </p>
+    </div>
+
+  </div><!--/row -->
+</div><!--/container -->
+</div><!--/footerwrap -->
+
+<!-- code start  -->
+<script>
+$( "#show" ).click(function() {
+  $( "#hidden" ).show( "slow" );
+});
+</script>
+<!--  -->
