@@ -20,3 +20,7 @@
 #occupation {
   text-transform: uppercase;
 }
+
+.must-fill {
+  color: #FF0000;
+}

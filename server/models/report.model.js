@@ -11,6 +11,9 @@ var reportSchema = new Schema ({
     type: Date,
     required: true
   },
+  meetingName: {
+    type: String
+  },
   meetingDate: {
     type: Date,
     required: true
@@ -18,21 +21,8 @@ var reportSchema = new Schema ({
   meetingTime: {
     type: String
   },
-  meetingAddress: { //for the physical street address of meeting being reported
-    type: String
-  },
-  meetingCity: {
+  meetingLocation: { //for the physical street address of meeting being reported
     type: String,
-    required: true
-  },
-  meetingState: {
-    type: String,
-    required: true
-  },
-  meetingZip: {
-    type: Number,
-    minlength: 5,
-    maxlength: 5,
     required: true
   },
   meetingPurpose: {
@@ -53,22 +43,18 @@ var reportSchema = new Schema ({
   },
   specificGroup: {
     type: String,
-    required: true
   },
   host: {
     type: String
   },
   isNonProfit: {
     type: Boolean,
-    required: true
   },
   formedToSupport: {
     type: Boolean,
-    required: true
   },
   supportWho: {
     type: String,
-    required: true
   },
   hasLeader: {
     type: Boolean,
@@ -101,16 +87,20 @@ var reportSchema = new Schema ({
     required: true
   },
   femaleAttend: {
-    type: Number
+    type: Number,
+    required: true
   },
   maleAttend: {
-    type: Number
+    type: Number,
+    required: true
   },
   otherGenderAttend: {
-    type: Number
+    type: Number,
+    required: true
   },
   dkGenderAttend: {
-    type: Number
+    type: Number,
+    required: true
   },
   latinAttend: {
     type: Number

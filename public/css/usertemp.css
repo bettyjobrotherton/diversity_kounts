@@ -382,6 +382,27 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
     color:#FFF !important;
 }
 
+.btn-green{
+    background-color: #00B371;
+    border-radius: 0px;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: inherit;
+}
+
+.btn-green:hover {
+    background-color: #00E691;
+    border-radius: 0px;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    font-size: 20px;
+    font-weight: inherit;
+    color:#FFF !important;
+}
+
 .line{
     border-bottom : 2px solid #384452;
 }
