@@ -16,3 +16,7 @@
 #logout:focus {
   color: #333;
 }
+
+#occupation {
+  text-transform: uppercase;
+}

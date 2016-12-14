@@ -75,6 +75,7 @@ userSchema.methods.generateJwt = function(){
     email: this.email,
     firstName: this.firstName,
     lastName: this.lastName,
+    occupation: this.occupation,
     exp: parseInt(expiration.getTime() /1000)
   }, signature);
 };

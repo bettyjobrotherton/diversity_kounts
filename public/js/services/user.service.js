@@ -30,6 +30,9 @@
         return {
           email: payload.email,
           userID: payload._id,
+          firstName: payload.firstName,
+          lastName: payload.lastName,
+          occupation: payload.occupation
         };
       } else {
         return null;
