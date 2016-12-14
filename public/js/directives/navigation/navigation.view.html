@@ -12,9 +12,9 @@
     </div>
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
-        <li><a href="/#/login">LOGIN</a></li>
-        <li><a href="/#/signup">SIGN UP</a></li>
-        <li><logout></logout></li>
+        <li ng-hide='isLoggedIn'><a href="/#/login">LOGIN</a></li>
+        <li ng-hide='isLoggedIn'><a href="/#/signup">SIGN UP</a></li>
+        <li ng-show='isLoggedIn'><logout></logout></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
