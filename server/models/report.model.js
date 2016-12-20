@@ -14,13 +14,13 @@ var reportSchema = new Schema ({
   meetingName: {
     type: String
   },
-  meetingDate: {
+  meetingDateTime: {  //combined meeting date and time
     type: Date,
     required: true
   },
-  meetingTime: {
-    type: String
-  },
+  // meetingTime: {
+  //   type: String
+  // },
   meetingLocation: { //for the physical street address of meeting being reported
     type: String,
     required: true
