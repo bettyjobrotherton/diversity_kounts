@@ -5,7 +5,7 @@
   NavigationController.$inject = ['$scope', 'UserService'];
 
   function NavigationController($scope, UserService){
-      $scope.isLoggedIn = UserService.isLoggedIn;
+      $scope.isLoggedIn = UserService.isLoggedIn();
 
   }
 }());
