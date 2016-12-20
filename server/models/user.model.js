@@ -30,13 +30,12 @@ var userSchema = new Schema ({
     type: String
   },
   race: {
-    type: String
-    // black: Boolean,
-    // asian: Boolean,
-    // white: Boolean,
-    // native: Boolean,
-    // other: Boolean,
-    // na: Boolean
+    black: Boolean,
+    asian: Boolean,
+    white: Boolean,
+    native: Boolean,
+    other: Boolean,
+    na: Boolean
   },
   getEmail: {
     type: Boolean,

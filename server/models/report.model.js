@@ -67,7 +67,12 @@ var reportSchema = new Schema ({
     type: Boolean
   },
   leaderRace: {
-    type: String
+    black: Boolean,
+    asian: Boolean,
+    white: Boolean,
+    native: Boolean,
+    other: Boolean,
+    na: Boolean
   },
   hasSpeaker: {
     type: Boolean,
@@ -80,7 +85,12 @@ var reportSchema = new Schema ({
     type: Boolean
   },
   speakerRace: {
-    type: String
+    black: Boolean,
+    asian: Boolean,
+    white: Boolean,
+    native: Boolean,
+    other: Boolean,
+    na: Boolean
   },
   attendees: {
     type: Number,    //<--should this be required?

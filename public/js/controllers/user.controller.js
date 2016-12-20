@@ -10,18 +10,36 @@
     $scope.wantToReport = false;
     $scope.startSurvey = startSurvey;
     $scope.makeReport = makeReport;
+    $scope.viewReports = false;
+    $scope.viewSurveys = viewSurveys;
     $scope.required = true;
     $scope.cancel = cancel;
 
+    var userID = $scope.user.userID;
+
+    $scope.$watch(function(){
+      return ReportService.getAll();
+    }, function(){
+      $scope.reports =  ReportService.getPostsByUser(userId);
+    });
+
     function startSurvey(){
       $scope.wantToReport = true;
+      $scope.viewReports = false;
       return;
     }
 
     function makeReport(report){
-      report.reporter = $scope.user.userID;
+      report.reporter = userID;
+
 
       ReportService.create(report);
+      $scope.wantToReport = false;
+      $scope.viewReports = true;
+    }
+
+    function viewSurveys(){
+      $scope.viewReports = true;
       $scope.wantToReport = false;
     }
 
