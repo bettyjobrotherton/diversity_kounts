@@ -17,7 +17,7 @@ router.get('/reports', function(req, res){   //all reports
 });
 
 router.get('/reports/byuser/:userID', function(req, res){  //all reports by userID
-  Report.find({_user: req.params.userID}, function(err, reports){
+  Report.find({_reporter: req.params.userID}, function(err, reports){
     if(err){
       return res.status(500).json({
         msg: err

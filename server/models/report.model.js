@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var User = require('./user.model.js');
 
 var reportSchema = new Schema ({
-  reporter: [{
+  _reporter: [{
     type: Schema.Types.ObjectId,
     required: true
   }],

@@ -9,7 +9,7 @@
     var reports = [];
     var userReports = [];
     var selectedReport;
-    var baseURL = '/reports/';
+    var baseURL = '/reports';
 
     return {
       pullAll: pullAll,
@@ -37,10 +37,10 @@
     }
 
     function getAllByUser(userID){
-      $http.get(baseURL + 'byuser/' + userID)
+      $http.get(baseURL + '/byuser/' + userID)
            .then(function(res){
              userReports = res.data.reports;
-             return userReports;
+             console.log(userReports);
            })
            .catch(function(err){
              console.log(err);
@@ -48,10 +48,9 @@
     }
 
     function getOne(id){
-      $http.get(baseURL + id)
+      $http.get(baseURL + '/' + id)
            .then(function(res){
-             selectedReport = res.data.report[0];
-             return selectedReport;
+             selectedReport = res.report;
            })
            .catch(function(err){});
     }
@@ -81,7 +80,7 @@
     }
 
     function deleteOne(id, userID){
-      $http.delete(baseURL + id)
+      $http.delete(baseURL + '/' + id)
            .then(function(){
              getAllByUser(userID);
            })

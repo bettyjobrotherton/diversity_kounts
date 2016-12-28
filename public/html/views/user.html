@@ -7,7 +7,7 @@
             <span id='occupation'>{{ user.occupation }}</span>
       </div>
         <div class="col-md-6 col-xs-6 follow line" align="center">
-          <a ng-href="" ng-click='viewSurveys()'>
+          <a ng-href="" ng-click='viewSurveys(user.userID)'>
             <h4>
                  View Completed Surveys <br/> <span>click here</span>
             </h4>
@@ -24,23 +24,23 @@
 <!-- Beginning of 'View Completed Surveys' -->
 
 <div id="hidden" class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
-  <div ng-repeat="survey in surveys">
+  <div ng-repeat="userReport in userReports">
     <div class="row">
       <div class="col-sm-3 control-label">Name of Meeting:</div>
-      <div class="col-sm-9 standard-text">{{ survey.meetingName }}</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingName }}</div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-sm-3 control-label">Meeting Date and Time:</div>
       <div class="col-sm-9 standard-text">{{ survey.meetingDateTime }}</div>
     </div>
     <div class="row">
       <div class="col-sm-3 control-label">Location:</div>
       <div class="col-sm-9 standard-text">{{ survey.meetingLocation }}</div>
-    </div>
-    <div class="row">
+    </div> -->
+    <!-- <div class="row">
       <div class="col-sm-3 control-label">Main Purpose of Meeting:</div>
       <div class="col-sm-9 standard-text">{{ survey.meetingPurpose | viewMeetingPurpose }}</div>
-    </div>
+    </div> -->
   </div>
 
   </div>
