@@ -11,9 +11,12 @@
     var selectedReport;
     var baseURL = '/reports';
 
+    pullAll();
+
     return {
       pullAll: pullAll,
       getAll: getAll,
+      pullAllByUser: pullAllByUser,
       getAllByUser: getAllByUser,
       getOne: getOne,
       getSelected: getSelected,
@@ -36,7 +39,7 @@
       return reports;
     }
 
-    function getAllByUser(userID){
+    function pullAllByUser(userID){
       $http.get(baseURL + '/byuser/' + userID)
            .then(function(res){
              userReports = res.data.reports;
@@ -47,10 +50,14 @@
            });
     }
 
+    function getAllByUser(){
+      return userReports;
+    }
+
     function getOne(id){
       $http.get(baseURL + '/' + id)
            .then(function(res){
-             selectedReport = res.report;
+             selectedReport = res.data.report;
            })
            .catch(function(err){});
     }
@@ -62,7 +69,7 @@
     function create(newReport){
       $http.post(baseURL, newReport)
            .then(function(res){
-             getAllByUser(userID);
+             pullAll();
            })
            .catch(function(err){
              console.log(err);

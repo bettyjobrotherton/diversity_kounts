@@ -26,8 +26,8 @@ var reportSchema = new Schema ({
     required: true
   },
   meetingPurpose: {
-    type: Boolean, //where true would be civic or professional development
-    required: true  //and false would be hobby or personal development
+    type: String,
+    required: true  
   },
   meetingType: {
     type: String,

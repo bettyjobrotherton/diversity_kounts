@@ -7,7 +7,7 @@
             <span id='occupation'>{{ user.occupation }}</span>
       </div>
         <div class="col-md-6 col-xs-6 follow line" align="center">
-          <a ng-href="" ng-click='viewSurveys(user.userID)'>
+          <a ng-href="" ng-click='viewSurveys()'>
             <h4>
                  View Completed Surveys <br/> <span>click here</span>
             </h4>
@@ -23,24 +23,125 @@
 
 <!-- Beginning of 'View Completed Surveys' -->
 
-<div id="hidden" class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
+<div class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
   <div ng-repeat="userReport in userReports">
     <div class="row">
       <div class="col-sm-3 control-label">Name of Meeting:</div>
       <div class="col-sm-9 standard-text">{{ userReport.meetingName }}</div>
     </div>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-sm-3 control-label">Meeting Date and Time:</div>
-      <div class="col-sm-9 standard-text">{{ survey.meetingDateTime }}</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingDateTime | date: 'short' }}</div>
     </div>
     <div class="row">
       <div class="col-sm-3 control-label">Location:</div>
-      <div class="col-sm-9 standard-text">{{ survey.meetingLocation }}</div>
-    </div> -->
-    <!-- <div class="row">
+      <div class="col-sm-9 standard-text">{{ userReport.meetingLocation }}</div>
+    </div>
+    <div class="row">
       <div class="col-sm-3 control-label">Main Purpose of Meeting:</div>
-      <div class="col-sm-9 standard-text">{{ survey.meetingPurpose | viewMeetingPurpose }}</div>
-    </div> -->
+      <div class="col-sm-9 standard-text">{{ userReport.meetingPurpose }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Meeting Type:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingType }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was the meeting routine?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isRoutine | yesOrNo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was the meeting intended for a specific business or industry?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isForSpecificGroup | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.isForSpecificGroup'>
+      <div class="col-sm-3 control-label">Which one?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.specificGroup }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Name of hosting organization:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.host }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Is orgqanization a non-profit?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isNonProfit | yesOrNo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was organization formed to support a specific gender and/or demographic?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.formedToSupport | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.formedToSupport'>
+      <div class="col-sm-3 control-label">Which one(s)?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.supportWho }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was there a group leader/president?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.hasLeader | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.hasLeader'>
+      <div class="col-sm-3 control-label">They indentified as:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.leaderGender }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasLeader">
+      <div class="col-sm-3 control-label">Leader's race was:</div>
+      <div class="col-sm-9 standard-text">
+        <div ng-show="userReport.leaderRace.black">Black/African American</div>
+        <div ng-show="userReport.leaderRace.asian">Asian/Pacific Islander</div>
+        <div ng-show="userReport.leaderRace.white">White/Caucasian</div>
+        <div ng-show="userReport.leaderRace.native">Native American/Indigenous</div>
+        <div ng-show="userReport.leaderRace.other">Other</div>
+        <div ng-show="userReport.leaderRace.na">Not Sure</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was there a keynote speaker?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.hasSpeaker | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasSpeaker">
+      <div class="col-sm-3 control-label">They qualified as:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.speakerGender }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasSpeaker">
+      <div class="col-sm-3 control-label">The speaker's race was:</div>
+      <div class="col-sm-9 standard-text">
+        <div ng-show="userReport.speakerRace.black">Black/African American</div>
+        <div ng-show="userReport.speakerRace.asian">Asian/Pacific Islander</div>
+        <div ng-show="userReport.speakerRace.white">White/Caucasian</div>
+        <div ng-show="userReport.speakerRace.native">Native American/Indigenous</div>
+        <div ng-show="userReport.speakerRace.other">Other</div>
+        <div ng-show="userReport.speakerRace.na">Not Sure</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.attendees }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees that were:</div>
+      <div class="col-sm-9 standard-text">
+        <div>Female: {{ userReport.femaleAttend }}</div>
+        <div>Male: {{ userReport.maleAttend }}</div>
+        <div>Other: {{ userReport.otherGenderAttend }}</div>
+        <div>Not sure: {{ userReport.dkGenderAttend }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees that were:</div>
+      <div class="col-sm-9 standard-text">
+        <div>Black/African American: {{ userReport.blackAttend }}</div>
+        <div>Asian/Pacific Islander: {{ userReport.asianAttend }}</div>
+        <div>White/Caucasian: {{ userReport.whiteAttend }}</div>
+        <div>Native American/Indigenous: {{ userReport.nativeAttend }}</div>
+        <div>Other: {{ userReport.otherRaceAttend }}</div>
+        <div>Not sure: {{ userReport.dkRaceAttend }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Comment(s):</div>
+      <div class="col-sm-9 standard-text">{{ userReport.comments }}</div>
+    </div>
+    <div class="row">
+      <hr>
+    </div>
   </div>
 
   </div>
@@ -89,8 +190,8 @@
               <div class="col-sm-9">
                 <select ng-model='report.meetingPurpose' ng-required='required' class="form-control">
                   <!-- <option>Pick one</option> -->
-                  <option value="true">Civic/Professional Development</option>
-                  <option value="false">Hobby/Personal Development</option>
+                  <option value="Civic/Professional Development">Civic/Professional Development</option>
+                  <option value="Hobby/Personal Development">Hobby/Personal Development</option>
                 </select>
               </div>
             </div>
@@ -218,7 +319,7 @@
                 <input ng-model='report.leaderRace.white' type="checkbox" value="white">
                 <label class='standard-text'>White/Caucasian</label><br>
                 <input ng-model='report.leaderRace.native' type="checkbox" value="native">
-                <label class='standard-text'>Native America/Indigenous</label><br>
+                <label class='standard-text'>Native American/Indigenous</label><br>
                 <input ng-model='report.leaderRace.other' type="checkbox" value="other">
                 <label class='standard-text'>Other</label><br>
                 <input ng-model='report.leaderRace.notSure' type="checkbox" value="notSure">
@@ -271,7 +372,7 @@
                 <input ng-model='report.speakerRace.white' type="checkbox" value="white">
                 <label class='standard-text'>White/Caucasian</label><br>
                 <input ng-model='report.speakerRace.native' type="checkbox" value="native">
-                <label class='standard-text'>Native America/Indigenous</label><br>
+                <label class='standard-text'>Native American/Indigenous</label><br>
                 <input ng-model='report.speakerRace.other' type="checkbox" value="other">
                 <label class='standard-text'>Other</label><br>
                 <input ng-model='report.speakerRace.notSure' type="checkbox" value="notSure">

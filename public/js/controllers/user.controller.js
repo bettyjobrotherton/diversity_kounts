@@ -20,7 +20,9 @@
     $scope.$watch(function(){
       return ReportService.getAll();
     }, function(){
-      $scope.userReports = ReportService.getAllByUser(userID);
+      userID = $scope.user.userID;
+      ReportService.pullAllByUser(userID);
+      $scope.userReports = ReportService.getAllByUser();
     });
 
     function startSurvey(){
@@ -38,11 +40,13 @@
       $scope.viewReports = true;
     }
 
-    function viewSurveys(id){
+    function viewSurveys(){
       $scope.viewReports = true;
       $scope.wantToReport = false;
-      $scope.userReports = ReportService.getAllByUser(id);
-      debugger;
+
+      userID = $scope.user.userID;
+      ReportService.pullAllByUser(userID);
+      $scope.userReports = ReportService.getAllByUser();
     }
 
     function cancel(){

@@ -14,6 +14,7 @@
       <ul class="nav navbar-nav">
         <li ng-hide='isLoggedIn'><a href="/#/login">LOGIN</a></li>
         <li ng-hide='isLoggedIn'><a href="/#/signup">SIGN UP</a></li>
+        <li ng-show="isLoggedIn"><a href="/#/user">USER</a></li>
         <li ng-show='isLoggedIn'><logout></logout></li>
       </ul>
     </div><!--/.nav-collapse -->
