@@ -24,7 +24,7 @@
 <!-- Beginning of 'View Completed Surveys' -->
 
 <div class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
-  <div ng-repeat="userReport in userReports">
+  <div ng-repeat="userReport in userReports | orderBy: 'dateSubmit' | limitTo: 3">
     <div class="row">
       <div class="col-sm-3 control-label">Name of Meeting:</div>
       <div class="col-sm-9 standard-text">{{ userReport.meetingName }}</div>

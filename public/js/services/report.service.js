@@ -43,7 +43,6 @@
       $http.get(baseURL + '/byuser/' + userID)
            .then(function(res){
              userReports = res.data.reports;
-             console.log(userReports);
            })
            .catch(function(err){
              console.log(err);
