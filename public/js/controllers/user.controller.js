@@ -14,6 +14,7 @@
     $scope.viewSurveys = viewSurveys;
     $scope.required = true;
     $scope.cancel = cancel;
+    $scope.closeView = closeView;
 
     var userID = $scope.user.userID;
 
@@ -52,6 +53,10 @@
     function cancel(){
       $scope.report = {};
       $scope.wantToReport = false;
+    }
+
+    function closeView(){
+      $scope.viewReports = false;
     }
 
   }

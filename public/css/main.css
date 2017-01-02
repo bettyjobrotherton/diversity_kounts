@@ -1,7 +1,7 @@
 #logout {
   color: #ffffff;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 11px;
   font-family: 'Lato', sans-serif;
   position: relative;
   display: block;
@@ -27,6 +27,12 @@
 
 .standard-text {
   color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.hilighted-text {
+  color: #00b3fe;
   font-size: 18px;
   font-weight: 500;
 }

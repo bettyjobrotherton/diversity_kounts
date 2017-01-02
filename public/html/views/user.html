@@ -24,6 +24,9 @@
 <!-- Beginning of 'View Completed Surveys' -->
 
 <div class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
+  <div align="center">
+    <button class="btn btn-orange" ng-click='closeView()'>CLOSE</button>
+  </div>
   <div ng-repeat="userReport in userReports | orderBy: 'dateSubmit' | limitTo: 3">
     <div class="row">
       <div class="col-sm-3 control-label">Name of Meeting:</div>
@@ -118,21 +121,21 @@
     <div class="row">
       <div class="col-sm-3 control-label">Number of attendees that were:</div>
       <div class="col-sm-9 standard-text">
-        <div>Female: {{ userReport.femaleAttend }}</div>
-        <div>Male: {{ userReport.maleAttend }}</div>
-        <div>Other: {{ userReport.otherGenderAttend }}</div>
-        <div>Not sure: {{ userReport.dkGenderAttend }}</div>
+        <div><span class='hilighted-text'>Female:</span> {{ userReport.femaleAttend }}</div>
+        <div><span class='hilighted-text'>Male:</span> {{ userReport.maleAttend }}</div>
+        <div><span class='hilighted-text'>Other:</span> {{ userReport.otherGenderAttend }}</div>
+        <div><span class='hilighted-text'>Not sure:</span> {{ userReport.dkGenderAttend }}</div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-3 control-label">Number of attendees that were:</div>
       <div class="col-sm-9 standard-text">
-        <div>Black/African American: {{ userReport.blackAttend }}</div>
-        <div>Asian/Pacific Islander: {{ userReport.asianAttend }}</div>
-        <div>White/Caucasian: {{ userReport.whiteAttend }}</div>
-        <div>Native American/Indigenous: {{ userReport.nativeAttend }}</div>
-        <div>Other: {{ userReport.otherRaceAttend }}</div>
-        <div>Not sure: {{ userReport.dkRaceAttend }}</div>
+        <div><span class='hilighted-text'>Black/African American:</span> {{ userReport.blackAttend }}</div>
+        <div><span class='hilighted-text'>Asian/Pacific Islander:</span> {{ userReport.asianAttend }}</div>
+        <div><span class='hilighted-text'>White/Caucasian:</span> {{ userReport.whiteAttend }}</div>
+        <div><span class='hilighted-text'>Native American/Indigenous:</span> {{ userReport.nativeAttend }}</div>
+        <div><span class='hilighted-text'>Other:</span> {{ userReport.otherRaceAttend }}</div>
+        <div><span class='hilighted-text'>Not sure:</span> {{ userReport.dkRaceAttend }}</div>
       </div>
     </div>
     <div class="row">
@@ -140,12 +143,14 @@
       <div class="col-sm-9 standard-text">{{ userReport.comments }}</div>
     </div>
     <div class="row">
-      <hr>
+      <hr width="90%">
     </div>
   </div>
-
-  </div>
-
+  <div align="center">
+    <div>
+      <div class='standard-text'><a href="/#/reports">Click here to view all reports</a></div>
+    </div>
+    <button class="btn btn-orange" ng-click='closeView()'>CLOSE</button>
   </div>
 </div>
 
@@ -157,6 +162,10 @@
 <!-- alex start -->
           <p class='standard-text text-center'>Questions marked with an asterisk(<span class="must-fill">*</span>) must be completed.</p>
           <form ng-submit='makeReport(report)' class="form-horizontal" role="form">
+            <div align="center">
+              <button type='submit' class="btn btn-green">SUBMIT</button>
+              <button class="btn btn-orange" ng-click='cancel()'>CANCEL</button>
+            </div>
             <div class="form-group">
               <label class="col-sm-3 control-label">Name of Meeting:<span class='must-fill'>*</span></label>
               <div class="col-sm-9">
