@@ -1,0 +1,486 @@
+<div class="container">
+  <div class="row login_box">
+      <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h3>READY TO BE HEARD?</h3></div>
+            <div class="outter"><img src="../images/people-q-c-100-100-1.jpg" class="image-circle"/></div>
+            <h1>Hi {{ user.firstName }}</h1>
+            <span id='occupation'>{{ user.occupation }}</span>
+      </div>
+        <div class="col-md-6 col-xs-6 follow line" align="center">
+          <a ng-href="" ng-click='viewSurveys()'>
+            <h4>
+                 View Completed Surveys <br/> <span>click here</span>
+            </h4>
+          </a>
+        </div>
+        <div id="show" class="col-md-6 col-xs-6 follow line" align="center">
+          <a ng-href='' ng-click='startSurvey()'>
+            <h4>
+                 Start A New Survey <br/> <span>click here</span>
+            </h4>
+          </a>
+        </div>
+
+<!-- Beginning of 'View Completed Surveys' -->
+
+<div class="col-md-12 col-xs-12 login_control survey" ng-show='viewReports'>
+  <div ng-repeat="userReport in userReports | orderBy: 'dateSubmit' | limitTo: 3">
+    <div class="row">
+      <div class="col-sm-3 control-label">Name of Meeting:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingName }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Meeting Date and Time:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingDateTime | date: 'short' }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Location:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingLocation }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Main Purpose of Meeting:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingPurpose }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Meeting Type:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.meetingType }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was the meeting routine?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isRoutine | yesOrNo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was the meeting intended for a specific business or industry?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isForSpecificGroup | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.isForSpecificGroup'>
+      <div class="col-sm-3 control-label">Which one?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.specificGroup }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Name of hosting organization:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.host }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Is orgqanization a non-profit?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.isNonProfit | yesOrNo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was organization formed to support a specific gender and/or demographic?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.formedToSupport | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.formedToSupport'>
+      <div class="col-sm-3 control-label">Which one(s)?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.supportWho }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was there a group leader/president?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.hasLeader | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show='userReport.hasLeader'>
+      <div class="col-sm-3 control-label">They indentified as:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.leaderGender }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasLeader">
+      <div class="col-sm-3 control-label">Leader's race was:</div>
+      <div class="col-sm-9 standard-text">
+        <div ng-show="userReport.leaderRace.black">Black/African American</div>
+        <div ng-show="userReport.leaderRace.asian">Asian/Pacific Islander</div>
+        <div ng-show="userReport.leaderRace.white">White/Caucasian</div>
+        <div ng-show="userReport.leaderRace.native">Native American/Indigenous</div>
+        <div ng-show="userReport.leaderRace.other">Other</div>
+        <div ng-show="userReport.leaderRace.na">Not Sure</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Was there a keynote speaker?</div>
+      <div class="col-sm-9 standard-text">{{ userReport.hasSpeaker | yesOrNo }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasSpeaker">
+      <div class="col-sm-3 control-label">They qualified as:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.speakerGender }}</div>
+    </div>
+    <div class="row" ng-show="userReport.hasSpeaker">
+      <div class="col-sm-3 control-label">The speaker's race was:</div>
+      <div class="col-sm-9 standard-text">
+        <div ng-show="userReport.speakerRace.black">Black/African American</div>
+        <div ng-show="userReport.speakerRace.asian">Asian/Pacific Islander</div>
+        <div ng-show="userReport.speakerRace.white">White/Caucasian</div>
+        <div ng-show="userReport.speakerRace.native">Native American/Indigenous</div>
+        <div ng-show="userReport.speakerRace.other">Other</div>
+        <div ng-show="userReport.speakerRace.na">Not Sure</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees:</div>
+      <div class="col-sm-9 standard-text">{{ userReport.attendees }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees that were:</div>
+      <div class="col-sm-9 standard-text">
+        <div>Female: {{ userReport.femaleAttend }}</div>
+        <div>Male: {{ userReport.maleAttend }}</div>
+        <div>Other: {{ userReport.otherGenderAttend }}</div>
+        <div>Not sure: {{ userReport.dkGenderAttend }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Number of attendees that were:</div>
+      <div class="col-sm-9 standard-text">
+        <div>Black/African American: {{ userReport.blackAttend }}</div>
+        <div>Asian/Pacific Islander: {{ userReport.asianAttend }}</div>
+        <div>White/Caucasian: {{ userReport.whiteAttend }}</div>
+        <div>Native American/Indigenous: {{ userReport.nativeAttend }}</div>
+        <div>Other: {{ userReport.otherRaceAttend }}</div>
+        <div>Not sure: {{ userReport.dkRaceAttend }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 control-label">Comment(s):</div>
+      <div class="col-sm-9 standard-text">{{ userReport.comments }}</div>
+    </div>
+    <div class="row">
+      <hr>
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+</div>
+
+
+<!--Beginning of 'Start a New Survey' form -->
+
+        <div id="hidden" class="col-md-12 col-xs-12 login_control survey" ng-show='wantToReport'>
+
+<!-- alex start -->
+          <p class='standard-text text-center'>Questions marked with an asterisk(<span class="must-fill">*</span>) must be completed.</p>
+          <form ng-submit='makeReport(report)' class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Name of Meeting:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <input ng-model='report.meetingName' class="form-control" type="text"  placeholder="ex. Monthly JavaScript Meeting">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Meeting date and time:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <input ng-model='report.meetingDateTime' ng-required='required' class="form-control" type="datetime-local">
+              </div>
+            </div>
+            <br>
+            <!-- <div class='form-group'>
+              <label class='col-sm-3 control-label'>Meeting start time:</label>
+              <div class="col-sm-9">
+                <input ng-model='report.meetingTime' type="time" class='form-control'>
+              </div>
+            </div>
+            <br> -->
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Location:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <input ng-model='report.meetingLocation' ng-required='required' class="form-control" type="text" placeholder="City, State">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Main purpose of meeting:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.meetingPurpose' ng-required='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="Civic/Professional Development">Civic/Professional Development</option>
+                  <option value="Hobby/Personal Development">Hobby/Personal Development</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is meeting a:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.meetingType' ng-requried='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="Private decision-making">decision-making meeting that is private/closed</option>
+                  <option value="Private non-decision-making">non-decision-making meeting that is private/closed</option>
+                  <option value="Public decision-making">decision-making meeting that is public/open</option>
+                  <option value="Public non-decision-making">non-decision-making meeting that is public/open</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is meeting routine or being held for a special purpose?<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.isRoutine' ng-required='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Routine</option>
+                  <option value="false">Special Purpose</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is meeting intended for a specific business or industry?<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.isForSpecificGroup' ng-required='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">If yes, which one?</label>
+              <div class="col-sm-9">
+                <input ng-model='report.specificGroup' type="text" placeholder="If not applicable, go to next question" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Name of hosting organization:<span class="must-fill">*</span></label>
+              <div class="col-sm-9">
+                <input ng-model='report.host' ng-required='required' type="text" placeholder="ex. Future JavaScripters of America" class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is organization a non-profit?</label>
+              <div class="col-sm-9">
+                <select ng-model='report.isNonProfit' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Was organization formed to support a specific gender and/or demographic?</label>
+              <div class="col-sm-9">
+                <select ng-model='report.formedToSupport' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">If yes, which one(s)?</label>
+              <div class="col-sm-9">
+                <input ng-model='report.supportWho' type="text" class="form-control" placeholder="If not applicable, go to next question">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is there a group leader/president?<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.hasLeader' ng-required='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">If yes, do they identify as:</label>
+              <div class="col-sm-9">
+                <select ng-model='report.leaderGender' class="form-control">
+                  <!-- <option value='No Answer'>Pick one</option> -->
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                  <option value="Not Sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Are they Latino or Hispanic?</label>
+              <div class="col-sm-9">
+                <select ng-model='report.isLeaderLatin' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="True">Yes</option>
+                  <option value="False">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">What is the leader's race? (Mark all that apply):</label>
+              <div class="col-sm-9">
+                <input ng-model='report.leaderRace.black' type='checkbox' value="black">
+                <label class='standard-text'>Black/African American</label><br>
+                <input ng-model='report.leaderRace.asian' type="checkbox" value="asian">
+                <label class='standard-text'>Asian/Pacific Islander</label><br>
+                <input ng-model='report.leaderRace.white' type="checkbox" value="white">
+                <label class='standard-text'>White/Caucasian</label><br>
+                <input ng-model='report.leaderRace.native' type="checkbox" value="native">
+                <label class='standard-text'>Native American/Indigenous</label><br>
+                <input ng-model='report.leaderRace.other' type="checkbox" value="other">
+                <label class='standard-text'>Other</label><br>
+                <input ng-model='report.leaderRace.notSure' type="checkbox" value="notSure">
+                <label class='standard-text'>Not sure</label><br>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Is there a keynote speaker?<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <select ng-model='report.hasSpeaker' ng-required='required' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">If yes, do they qualify as:</label>
+              <div class="col-sm-9">
+                <select ng-model='report.speakerGender' class="form-control">
+                  <!-- <option value="No Answer">Pick one</option> -->
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                  <option value="Not Sure">Not sure</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Are they Latino or Hispanic?</label>
+              <div class="col-sm-9">
+                <select ng-model='report.isSpeakerLatin' class="form-control">
+                  <!-- <option>Pick one</option> -->
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">What is the speaker's race? (Mark all that apply)</label>
+              <div class="col-sm-9">
+                <input ng-model='report.speakerRace.black' type="checkbox" value="black">
+                <label class='standard-text'>Black/African American</label><br>
+                <input ng-model='report.speakerRace.asian' type="checkbox" value="asian">
+                <label class='standard-text'>Asian/Pacific Islander</label><br>
+                <input ng-model='report.speakerRace.white' type="checkbox" value="white">
+                <label class='standard-text'>White/Caucasian</label><br>
+                <input ng-model='report.speakerRace.native' type="checkbox" value="native">
+                <label class='standard-text'>Native American/Indigenous</label><br>
+                <input ng-model='report.speakerRace.other' type="checkbox" value="other">
+                <label class='standard-text'>Other</label><br>
+                <input ng-model='report.speakerRace.notSure' type="checkbox" value="notSure">
+                <label class='standard-text'>Not sure</label><br>
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Number of attendees?<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <input type='number' ng-model='report.attendees' ng-required='required' class="form-control">
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Number of attendees that are:<span class='must-fill'>*</span></label>
+              <div class="col-sm-9">
+                <label class='standard-text'>Female:</label>
+                <input ng-model='report.femaleAttend' ng-required='required' type="number" class="form-control"><br>
+                <label class='standard-text'>Male:</label>
+                <input ng-model='report.maleAttend' ng-required='required' type="number" class="form-control"><br>
+                <label class='standard-text'>Other:</label>
+                <input ng-model='report.otherGenderAttend' ng-required='required' type="number" class="form-control"><br>
+                <label class='standard-text'>Not sure:</label>
+                <input ng-model='report.dkGenderAttend' ng-required='required' type="number" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Number of attendees that are:</label>
+              <div class="col-sm-9">
+                <label class='standard-text'>Black/African American:</label>
+                <input ng-model='report.blackAttend' type="number" class="form-control"><br>
+                <label class='standard-text'>Asian/Pacific Islander:</label>
+                <input ng-model='report.asianAttend' type="number" class="form-control"><br>
+                <label class='standard-text'>White/Caucasian:</label>
+                <input ng-model='report.whiteAttend' type="number" class="form-control"><br>
+                <label class='standard-text'>Native American/Indigenous:</label>
+                <input ng-model='report.nativeAttend' type="number" class="form-control"><br>
+                <label class='standard-text'>Other:</label>
+                <input ng-model='report.otherRaceAttend' type="number" class='form-control'><br>
+                <label class='standard-text'>Not sure:</label>
+                <input ng-model='report.dkRaceAttend' type="number" class="form-control"><br>
+              </div>
+            </div>
+              <!-- alex end after edits for styling-->
+
+              <div class="form-group">
+                <label class="col-sm-3 control-label">Comment(s):</label>
+                <div class="col-sm-9">
+                  <textarea ng-model='report.comments' class="form-control" rows="5" spellcheck="true"></textarea>
+                </div>
+              </div>
+              <br>
+              <div align="center">
+                <button type='submit' class="btn btn-green">SUBMIT</button>
+                <button class="btn btn-orange" ng-click='cancel()'>CANCEL</button>
+              </div>
+              <p class="standard-text text-center"><span class="must-fill">*</span>Response is required.</p>
+          </form>
+<!--end of 'Start a New Survey' form -->
+
+        </div><!--hidden survey close-->
+      </div> <!--user/"login box" close-->
+    </div> <!--container close-->
+
+
+
+<!-- *****************************************************************************************************************
+FOOTER
+***************************************************************************************************************** -->
+<div id="footerwrap">
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h4>About</h4>
+      <div class="hline-w"></div>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+    </div>
+    <div class="col-lg-4">
+      <h4>Social Links</h4>
+      <div class="hline-w"></div>
+      <p>
+        <a href="#"><i class="fa fa-dribbble"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-tumblr"></i></a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <h4>Address</h4>
+      <div class="hline-w"></div>
+      <p>
+        Email: contact@diversitykounts.com
+        Some Ave, 987,<br/>
+        23890, New York,<br/>
+        United States.<br/>
+      </p>
+    </div>
+
+  </div><!--/row -->
+</div><!--/container -->
+</div><!--/footerwrap -->
+
+<!-- code start  -->
+<script>
+$( "#show" ).click(function() {
+  $( "#hidden" ).show( "slow" );
+});
+</script>
+<!--  -->
