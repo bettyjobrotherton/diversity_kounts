@@ -3,9 +3,9 @@
   angular.module('diversity_app')
          .controller('SignupController', SignupController);
 
-  SignupController.$inject = ['$scope', '$location', 'UserService'];
+  SignupController.$inject = ['$scope', '$location'];
 
-  function SignupController($scope, $location, UserService){
+  function SignupController($scope, $location){
     $scope.signup = signup;
     $scope.required = true;
 

@@ -55,6 +55,22 @@
             restricted: true
           }
       })
+      .when('/reports', {
+        templateUrl: '/html/views/reports.html',
+        controller: 'ReportsController',
+        css: ['css/bootstrap.css', 'css/usertemp.css'],
+        access: {
+          restricted: true
+        }
+      })
+      .when('/report-detail', {
+        templateUrl: '/html/views/report-detail.html',
+        controller: 'DetailController',
+        css: ['css/bootstrap.css', 'css/usertemp.css'],
+        access: {
+          restricted: true
+        }
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -15,6 +15,8 @@
     $scope.required = true;
     $scope.cancel = cancel;
     $scope.closeView = closeView;
+    $scope.recentPosts = [];
+    $scope.viewDetail = viewDetail;
 
     var userID = $scope.user.userID;
 
@@ -24,7 +26,16 @@
       userID = $scope.user.userID;
       ReportService.pullAllByUser(userID);
       $scope.userReports = ReportService.getAllByUser();
+      $scope.recentPosts = getMostRecentPosts(ReportService.getAllByUser(userID));
     });
+
+    function getMostRecentPosts(allPosts){
+      return allPosts
+       .sort(function(first, second){
+         return first.postDate > second.postDate;
+      })
+       .slice(0,5);
+    }
 
     function startSurvey(){
       $scope.wantToReport = true;
@@ -57,6 +68,12 @@
 
     function closeView(){
       $scope.viewReports = false;
+    }
+
+    function viewDetail(reportID){
+      // ReportService.getOne(reportID);
+      debugger;
+      // $location.path('/report-detail');
     }
 
   }

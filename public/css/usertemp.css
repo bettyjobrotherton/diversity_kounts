@@ -401,6 +401,21 @@ box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
     color:#FFF !important;
 }
 
+.btn-blue {
+	background-color: #00b3fe;
+	border-radius: 0;
+	margin: 5px;
+	padding: 5px;
+	width: 150px;
+	font-size: 15px;
+	font-weight: inherit;
+}
+
+.btn-blue:hover {
+	background-color: #00a1e6;
+	color:#FFF !important;
+}
+
 .line{
     border-bottom : 2px solid #384452;
 }

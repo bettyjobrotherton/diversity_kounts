@@ -1,0 +1,138 @@
+<div navigation></div>
+
+<div class="container">
+  <div class="row login_box">
+    <div class="col-md-12 col-xs-12 login_control survey">
+
+<div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Name of Meeting:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.meetingName }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Meeting Date and Time:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.meetingDateTime | date: 'short' }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Location:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.meetingLocation }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Main Purpose of Meeting:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.meetingPurpose }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Meeting Type:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.meetingType }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Was the meeting routine?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.isRoutine | yesOrNo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Was the meeting intended for a specific business or industry?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.isForSpecificGroup | yesOrNo }}</div>
+  </div>
+  <div class="row" ng-show='userReport.isForSpecificGroup'>
+    <div class="col-sm-3 control-label">Which one?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.specificGroup }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Name of hosting organization:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.host }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Is orgqanization a non-profit?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.isNonProfit | yesOrNo }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Was organization formed to support a specific gender and/or demographic?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.formedToSupport | yesOrNo }}</div>
+  </div>
+  <div class="row" ng-show='userReport.formedToSupport'>
+    <div class="col-sm-3 control-label">Which one(s)?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.supportWho }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Was there a group leader/president?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.hasLeader | yesOrNo }}</div>
+  </div>
+  <div class="row" ng-show='userReport.hasLeader'>
+    <div class="col-sm-3 control-label">They indentified as:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.leaderGender }}</div>
+  </div>
+  <div class="row" ng-show="userReport.hasLeader">
+    <div class="col-sm-3 control-label">Leader's race was:</div>
+    <div class="col-sm-9 standard-text">
+      <div ng-show="userReport.leaderRace.black">Black/African American</div>
+      <div ng-show="userReport.leaderRace.asian">Asian/Pacific Islander</div>
+      <div ng-show="userReport.leaderRace.white">White/Caucasian</div>
+      <div ng-show="userReport.leaderRace.native">Native American/Indigenous</div>
+      <div ng-show="userReport.leaderRace.other">Other</div>
+      <div ng-show="userReport.leaderRace.na">Not Sure</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Was there a keynote speaker?</div>
+    <div class="col-sm-9 standard-text">{{ userReport.hasSpeaker | yesOrNo }}</div>
+  </div>
+  <div class="row" ng-show="userReport.hasSpeaker">
+    <div class="col-sm-3 control-label">They qualified as:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.speakerGender }}</div>
+  </div>
+  <div class="row" ng-show="userReport.hasSpeaker">
+    <div class="col-sm-3 control-label">The speaker's race was:</div>
+    <div class="col-sm-9 standard-text">
+      <div ng-show="userReport.speakerRace.black">Black/African American</div>
+      <div ng-show="userReport.speakerRace.asian">Asian/Pacific Islander</div>
+      <div ng-show="userReport.speakerRace.white">White/Caucasian</div>
+      <div ng-show="userReport.speakerRace.native">Native American/Indigenous</div>
+      <div ng-show="userReport.speakerRace.other">Other</div>
+      <div ng-show="userReport.speakerRace.na">Not Sure</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Number of attendees:</div>
+    <div class="col-sm-9 standard-text">{{ userReport.attendees }}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Number of attendees that were:</div>
+    <div class="col-sm-9 standard-text">
+      <div><span class='hilighted-text'>Female:</span> {{ userReport.femaleAttend }}</div>
+      <div><span class='hilighted-text'>Male:</span> {{ userReport.maleAttend }}</div>
+      <div><span class='hilighted-text'>Other:</span> {{ userReport.otherGenderAttend }}</div>
+      <div><span class='hilighted-text'>Not sure:</span> {{ userReport.dkGenderAttend }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Number of attendees that were:</div>
+    <div class="col-sm-9 standard-text">
+      <div><span class='hilighted-text'>Black/African American:</span> {{ userReport.blackAttend }}</div>
+      <div><span class='hilighted-text'>Asian/Pacific Islander:</span> {{ userReport.asianAttend }}</div>
+      <div><span class='hilighted-text'>White/Caucasian:</span> {{ userReport.whiteAttend }}</div>
+      <div><span class='hilighted-text'>Native American/Indigenous:</span> {{ userReport.nativeAttend }}</div>
+      <div><span class='hilighted-text'>Other:</span> {{ userReport.otherRaceAttend }}</div>
+      <div><span class='hilighted-text'>Not sure:</span> {{ userReport.dkRaceAttend }}</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3 control-label">Comment(s):</div>
+    <div class="col-sm-9 standard-text">{{ userReport.comments }}</div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- *****************************************************************************************************************
+FOOTER
+***************************************************************************************************************** -->
+<div footer></div>
+
+<!-- code start  -->
+<script>
+$( "#show" ).click(function() {
+  $( "#hidden" ).show( "slow" );
+});
+</script>
+<!--  -->
