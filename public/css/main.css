@@ -1,1 +1,32 @@
-/*filler text*/
+#logout {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 12px;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  display: block;
+  padding: 15px;
+  line-height: 20px;
+ }
+
+#logout:hover {
+  color: #00b3fe;
+}
+
+#logout:focus {
+  color: #333;
+}
+
+#occupation {
+  text-transform: uppercase;
+}
+
+.must-fill {
+  color: #FF0000;
+}
+
+.standard-text {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+}
